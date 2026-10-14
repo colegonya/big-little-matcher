@@ -1,0 +1,5 @@
+name,capacity,rank1,rank2,rank3,rank4,rank5
+Big A,2,Little 1,Little 2,Little 3,Little 4,Little 5
+Big B,2,Little 6,Little 5,Little 7,Little 1,Little 4
+Big C,,Little 1,Little 5
+Big D,,Little 8,Little 9,Little 4,Little 10,Little 5

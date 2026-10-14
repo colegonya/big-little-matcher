@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+sandbox/
+data/real_*.csv
+.gstack/
+*.local.gs
