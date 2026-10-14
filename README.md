@@ -54,6 +54,29 @@ littles.csv:  name,rank1,...,rank10
 
 Names must match between files (capitalization ignored). Leave unused rank cells empty.
 
+## Integrating with myalphasigma
+
+The site's family tree already stores each brother's Big, Littles, family,
+and pledge class, so the matcher's job is to produce the Big-to-Little pairs
+the tree should record.
+
+- **Names to slugs.** Brothers are keyed by a slug like `/brothers/first-last`
+  (lowercase, words joined by hyphens). The matcher only compares names
+  case-insensitively, so the safest setup is to fill the form dropdowns (and
+  the CSV name columns) from the site's brother list, then look each name up
+  by slug when importing. Any name that doesn't map to a slug should stop the
+  import instead of creating a new brother.
+- **Output to import.** Each line under MATCHES is one `Big -> Little` pair.
+  For the tree, that becomes: set the Little's Big to that brother, and give
+  the Little the Big's family. A Big with capacity 2 shows up on two lines.
+  Unmatched Littles stay without a Big until a second round
+  (`big_little_match_round2.py`) places them.
+- **Open question: where do Littles come from?** New members aren't in the
+  Brothers list yet, and Rush only holds rushees from check-ins. Decide
+  whether matching runs on the Rush list (rushees with a bid) or on a new
+  pledge class added to Brothers before matching. That choice sets where the
+  Littles' names and slugs come from.
+
 ## Notes
 
 - Collect rankings privately and independently.
